@@ -30,11 +30,11 @@ def outlook(listNews):
     body.append(os.linesep)
     body.append(os.linesep)
     body.append(config.get("email","content"))
-    print(body)
+   # print(body)
     f = open('body.json','w')
     f.write(str(body))
     mail.Body = '\r\n'.join(body)
-    mail.Send()
+  #  mail.Send()
     print("send ok")
       
 if __name__ =="__main__":

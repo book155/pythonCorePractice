@@ -43,6 +43,9 @@ def getDomain(domain_dirname):
 
 def myMain():
     domainList = os.listdir(archivePath)
+   # domainList_new = sorted(domainList, key = lambda d : int(d.split('-')[0]))
+    domainList.sort(key = lambda d : int(d.split('-')[0]), reverse=False)
+    print(domainList)
     for domain_dirname in domainList:
         if not os.path.isfile(archivePath + os.sep + domain_dirname):
             #目录名称必须满足数字-领域名的格式
