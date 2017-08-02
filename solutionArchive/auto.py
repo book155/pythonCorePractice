@@ -60,7 +60,6 @@ def myMain():
     domainList = os.listdir(archivePath)
    # domainList_new = sorted(domainList, key = lambda d : int(d.split('-')[0]))
     domainList.sort(key = lambda d : int(d.split('-')[0]), reverse=False)
-    print(domainList)
     for domain_dirname in domainList:
         if not os.path.isfile(archivePath + os.sep + domain_dirname):
             #目录名称必须满足数字-领域名的格式
@@ -75,7 +74,6 @@ def myMain():
                 dict["achiver"]= list_CIEandPM[0]
                 dict["PM/PL"]= list_CIEandPM[1]
                 dict["vmpStatus"]= getVmpStatus(domain_dirname)
-                print(dict["vmpStatus"])
                 allList.append(dict)
     new_json = json.dumps(allList,sort_keys=True, indent=5)
     return allList
