@@ -41,6 +41,21 @@ def getDomainArchver(domain_dirname):
 def getDomain(domain_dirname):
     return re.match('\d+-(\w+)',domain_dirname).group(1)
 
+
+
+
+def getVmpStatus(domain_dirname):
+    f = codecs.open(configFile, "r", "utf-8")
+    config = configparser.ConfigParser()
+    config.readfp(f)
+    try:vmpPath = config.get("VMP",domain_dirname)
+    except configparser.NoOptionError:
+        return '不涉及'
+    if(os.path.isfile(vmpPath)):
+        return '存在'
+    else: return '不存在'
+	
+
 def myMain():
     domainList = os.listdir(archivePath)
    # domainList_new = sorted(domainList, key = lambda d : int(d.split('-')[0]))
@@ -59,10 +74,9 @@ def myMain():
                 list_CIEandPM = getDomainArchver(domain_dirname).split(',')
                 dict["achiver"]= list_CIEandPM[0]
                 dict["PM/PL"]= list_CIEandPM[1]
+                dict["vmpStatus"]= getVmpStatus(domain_dirname)
+                print(dict["vmpStatus"])
                 allList.append(dict)
     new_json = json.dumps(allList,sort_keys=True, indent=5)
-    #print allList
-    #f = open('allList.json','w')
-    #f.write(new_json)
     return allList
     
