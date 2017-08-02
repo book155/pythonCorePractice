@@ -52,8 +52,8 @@ def getVmpStatus(domain_dirname):
     except configparser.NoOptionError:
         return '不涉及'
     if(os.path.isfile(vmpPath)):
-        return '存在'
-    else: return '不存在'
+        return '是'
+    else: return '否'
 	
 
 def myMain():
