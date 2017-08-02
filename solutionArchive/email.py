@@ -24,9 +24,9 @@ def outlook(listNews):
     body.append(config.get("email","emailContent"))
     body.append(os.linesep)
     tableTitle_str = config.get("email","tableTitle").split(',')
-    body.append("{0:.<13} {1:.<16} {2:.<18} {3:.<23} {4:.<16} {5:.<20}".format(tableTitle_str[0],tableTitle_str[1],tableTitle_str[2],tableTitle_str[3],tableTitle_str[4],tableTitle_str[5]))
+    body.append("{0:.<13} {1:.<11} {2:.<13} {3:.<18} {4:.<11} {5:.<15}".format(tableTitle_str[0],tableTitle_str[1],tableTitle_str[2],tableTitle_str[3],tableTitle_str[4],tableTitle_str[5]))
     for newLine in listNews:
-        tableContent = "{0:.<15} {1:.<20} {2:.<20} {3:.<20} {4:.<20} {5:.<20}".format(newLine['domain'], newLine['achiveTime'],newLine['achiver'],newLine['PM/PL'],newLine['timeDifToNow'],newLine['vmpStatus'])
+        tableContent = "{0:.<15} {1:.<15} {2:.<15} {3:.<15} {4:.<15} {5:.<15}".format(newLine['domain'], newLine['achiveTime'],newLine['achiver'],newLine['PM/PL'],newLine['timeDifToNow'],newLine['vmpStatus'])
         body.append(tableContent)
     body.append(os.linesep)
     body.append(os.linesep)
