@@ -1,12 +1,12 @@
 def countToFour1():
     for eachNum in range(5):
-        print eachNum
+        print(eachNum)
 def countToFour2(n):
     for eachNum in range(n,5):
-        print eachNum
+        print(eachNum)
 def countToFour3(n=1):
     for eachNum in range(n,5):
-        print eachNum
+        print(eachNum)
 #EROOR
 #countToFour1(2)
 
@@ -25,9 +25,9 @@ countToFour3(4)
 #ERROR
 #countToFour1(5)
 #NONE
-print type(countToFour2(5))
+print(type(countToFour2(5)))
 #NONE
-print type(countToFour3(5))
+print(type(countToFour3(5)))
 
 #0,1,2,3,4
 countToFour1()
